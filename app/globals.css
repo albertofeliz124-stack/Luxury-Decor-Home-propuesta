@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f7f3ec;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #151412;
+  color: #f7f3ec;
+}
+
+img {
+  user-select: none;
+}
+
+@layer components {
+  .section {
+    @apply py-24 sm:py-32;
+  }
+
+  .headline {
+    @apply font-serif text-[clamp(3.25rem,7.6vw,8.5rem)] font-medium leading-[0.9] tracking-normal;
+  }
+
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 border px-5 py-3 text-sm font-extrabold uppercase tracking-[0.13em] transition duration-300;
+  }
+
+  .btn-dark {
+    @apply border-ink bg-ink text-ivory hover:bg-transparent hover:text-ink;
+  }
+
+  .btn-light {
+    @apply border-ivory bg-ivory text-ink hover:bg-transparent hover:text-ivory;
+  }
+
+  .icon-btn {
+    @apply inline-grid h-11 w-11 place-items-center border border-ink/15 bg-transparent transition hover:bg-ink hover:text-ivory;
+  }
+
+  .form-field {
+    @apply min-h-14 w-full border border-ink/12 bg-ivory px-4 py-3 text-base font-medium normal-case tracking-normal text-ink outline-none transition placeholder:text-graphite/35 focus:border-ink;
+  }
+
+  .animated-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size 280ms ease, color 280ms ease;
+  }
+
+  .animated-link:hover {
+    background-size: 100% 1px;
+  }
+}
+
+.comparison-range {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  height: 100%;
+  width: 100%;
+  cursor: ew-resize;
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .headline {
+    line-height: 0.94;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
