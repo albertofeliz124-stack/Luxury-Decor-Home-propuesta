@@ -161,23 +161,23 @@ export const textures = [
 export const spaces = [
   {
     title: "Sala",
-    image: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1300&q=85"
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=85"
   },
   {
     title: "Comedor",
-    image: "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1300&q=85"
+    image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1300&q=85"
   },
   {
     title: "Dormitorio",
-    image: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1300&q=85"
+    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1300&q=85"
   },
   {
     title: "Baño",
-    image: "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1300&q=85"
+    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1300&q=85"
   },
   {
     title: "Espacios comerciales",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1300&q=85"
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=85"
   }
 ];
 
@@ -185,7 +185,7 @@ export const inspiration = [
   {
     name: "Sala contemporánea",
     application: "Revestimientos + accesorios",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1300&q=85",
+    image: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1300&q=85",
     detail: "Muros con textura, piezas neutras y acentos naturales para un espacio social sereno."
   },
   {
@@ -203,7 +203,7 @@ export const inspiration = [
   {
     name: "Espacio comercial",
     application: "Revestimientos + plantas",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1300&q=85",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=85",
     detail: "Texturas memorables para recepciones, oficinas, restaurantes y estudios."
   }
 ];

@@ -22,7 +22,9 @@ function Nav() {
       <motion.header style={{ backgroundColor: background, borderColor: border }} className="fixed left-0 top-0 z-50 w-full border-b backdrop-blur-xl">
         <nav className="mx-auto flex h-20 max-w-[1540px] items-center justify-between px-5 sm:px-8 lg:px-12">
           <a href="#inicio" className="group flex min-h-11 min-w-0 items-center gap-3" aria-label="Luxury Decor Home inicio">
-            <span className="grid h-10 w-10 shrink-0 place-items-center border border-ink/20 bg-ivory/70 text-[0.66rem] font-bold uppercase tracking-[0.18em]">LDH</span>
+            <span className="relative h-11 w-11 shrink-0 overflow-hidden border border-ink/15 bg-white">
+              <Image src="/brand/luxury-decor-home-logo.jpeg" alt="Luxury Decor Home logo" fill className="object-contain p-1.5" sizes="44px" priority />
+            </span>
             <span className="truncate font-serif text-2xl font-semibold leading-none tracking-normal">Luxury Decor Home</span>
           </a>
           <div className="hidden items-center gap-7 xl:flex">
@@ -50,7 +52,12 @@ function Nav() {
         {open && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[60] bg-ink text-ivory lg:hidden">
             <div className="flex h-20 items-center justify-between px-5">
-              <span className="font-serif text-2xl font-semibold">Luxury Decor Home</span>
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="relative h-11 w-11 shrink-0 overflow-hidden border border-ivory/15 bg-ivory">
+                  <Image src="/brand/luxury-decor-home-logo.jpeg" alt="Luxury Decor Home logo" fill className="object-contain p-1.5" sizes="44px" priority />
+                </span>
+                <span className="truncate font-serif text-2xl font-semibold">Luxury Decor Home</span>
+              </div>
               <button className="icon-btn border-ivory/20 text-ivory" onClick={() => setOpen(false)} aria-label="Cerrar menú">
                 <X size={22} />
               </button>
@@ -543,7 +550,12 @@ function Footer() {
       <div className="mx-auto max-w-[1540px]">
         <div className="grid gap-10 border-b border-ivory/12 pb-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
           <div>
-            <p className="font-serif text-5xl leading-none">Luxury Decor Home</p>
+            <div className="flex items-center gap-4">
+              <span className="relative h-14 w-14 shrink-0 overflow-hidden border border-ivory/12 bg-ivory">
+                <Image src="/brand/luxury-decor-home-logo.jpeg" alt="Luxury Decor Home logo" fill className="object-contain p-2" sizes="56px" />
+              </span>
+              <p className="font-serif text-4xl leading-none sm:text-5xl">Luxury Decor Home</p>
+            </div>
             <p className="mt-5 max-w-sm text-ivory/62">Revestimientos Premium | Wallpapers | Home Decor</p>
           </div>
           <div className="grid gap-3">
