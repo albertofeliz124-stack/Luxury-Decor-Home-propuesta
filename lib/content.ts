@@ -1,9 +1,22 @@
 export const whatsappNumber = "10000000000";
 
-export function advisorLink(context: string) {
-  const message = `Hola Luxury Decor Home, me gustaría hablar con un asesor sobre ${context}.`;
+export function whatsappLink(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+export const whatsappMessages = {
+  general: "Hola, quisiera recibir asesoría para mi espacio.",
+  hero: "Hola, quisiera recibir asesoría sobre revestimientos y decoración para mi espacio.",
+  selection: "Hola, quisiera recibir información sobre la Selección Luxury.",
+  product: (name: string) => `Hola, quisiera recibir información sobre ${name}.`,
+  material: (name: string) => `Hola, quisiera recibir información sobre material ${name}.`,
+  professional: "Hola, soy profesional del diseño y quisiera conocer sus opciones de materiales y atención para proyectos.",
+  showroom: "Hola, quisiera coordinar una visita al showroom.",
+  inspiration: (name: string) => `Hola, quisiera recibir asesoría para un ambiente inspirado en ${name}.`,
+  footer: "Hola, quisiera recibir información sobre Luxury Decor Home.",
+  form: (name: string, interest: string, message?: string) =>
+    `Hola, soy ${name}. Quisiera recibir asesoría sobre ${interest}.${message ? ` ${message}` : ""}`
+};
 
 export const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -57,9 +70,9 @@ export const categories = [
 
 export const products = [
   {
-    name: "Panel Roble Lineal",
+    name: "Paneles arquitectónicos",
     category: "Paneles",
-    description: "Panel decorativo de apariencia cálida para acentuar salas, habitaciones y áreas sociales.",
+    description: "Paneles decorativos para acentuar salas, habitaciones y áreas sociales.",
     image: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85",
@@ -67,9 +80,9 @@ export const products = [
     ]
   },
   {
-    name: "Wallpaper Lino Arena",
+    name: "Wallpaper texturizado",
     category: "Wallpapers",
-    description: "Papel tapiz de textura textil para crear fondos suaves, elegantes y fáciles de combinar.",
+    description: "Papeles tapiz con textura para crear fondos suaves y fáciles de combinar.",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85",
@@ -77,9 +90,9 @@ export const products = [
     ]
   },
   {
-    name: "Revestimiento Piedra Clara",
+    name: "Revestimientos tipo piedra",
     category: "Revestimientos",
-    description: "Superficie mineral para muros protagonistas, recibidores y espacios comerciales.",
+    description: "Superficies de inspiración mineral para muros protagonistas, recibidores y espacios comerciales.",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85",
@@ -87,9 +100,9 @@ export const products = [
     ]
   },
   {
-    name: "Set Decorativo Niebla",
+    name: "Accesorios decorativos",
     category: "Accesorios",
-    description: "Piezas decorativas para mesas, consolas y estanterías con una lectura sobria y contemporánea.",
+    description: "Piezas decorativas para mesas, consolas y estanterías.",
     image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?auto=format&fit=crop&w=900&q=85",
@@ -97,9 +110,9 @@ export const products = [
     ]
   },
   {
-    name: "Olivo Decorativo Interior",
+    name: "Plantas decorativas",
     category: "Plantas decorativas",
-    description: "Elemento vegetal de gran formato para dar altura, frescura y proporción al ambiente.",
+    description: "Elementos vegetales decorativos para sumar altura, frescura y proporción al ambiente.",
     image: "https://images.unsplash.com/photo-1618220252344-8ec99ec624b1?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=85",
@@ -107,9 +120,9 @@ export const products = [
     ]
   },
   {
-    name: "Fuente Patio Serena",
+    name: "Fuentes de diseño",
     category: "Fuentes",
-    description: "Pieza de agua decorativa para crear una sensación de calma en terrazas, patios o interiores amplios.",
+    description: "Fuentes decorativas para terrazas, patios o interiores amplios.",
     image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=900&q=85",

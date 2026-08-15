@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CalendarDays, Check, Instagram, MapPin, Menu, MessageCircle, Send, X } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { advisorLink, categories, images, inspiration, navItems, products, spaces, textures } from "@/lib/content";
+import { categories, images, inspiration, navItems, products, spaces, textures, whatsappLink, whatsappMessages } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 
@@ -21,7 +21,7 @@ function Nav() {
     <>
       <motion.header style={{ backgroundColor: background, borderColor: border }} className="fixed left-0 top-0 z-50 w-full border-b backdrop-blur-xl">
         <nav className="mx-auto flex h-20 max-w-[1540px] items-center justify-between px-5 sm:px-8 lg:px-12">
-          <a href="#inicio" className="group flex min-w-0 items-center gap-3" aria-label="Luxury Decor Home inicio">
+          <a href="#inicio" className="group flex min-h-11 min-w-0 items-center gap-3" aria-label="Luxury Decor Home inicio">
             <span className="grid h-10 w-10 shrink-0 place-items-center border border-ink/20 bg-ivory/70 text-[0.66rem] font-bold uppercase tracking-[0.18em]">LDH</span>
             <span className="truncate font-serif text-2xl font-semibold leading-none tracking-normal">Luxury Decor Home</span>
           </a>
@@ -36,7 +36,7 @@ function Nav() {
             <a href="#showroom" className="btn border-ink/20">
               Visitar showroom
             </a>
-            <a href={advisorLink("una asesoría de decoración")} className="btn btn-dark">
+            <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" className="btn btn-dark">
               Hablar con un asesor
             </a>
           </div>
@@ -72,7 +72,7 @@ function Nav() {
                 ))}
               </div>
               <div className="grid gap-3 pt-8">
-                <a href={advisorLink("una asesoría desde Instagram")} className="btn btn-light justify-center">
+                <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" className="btn btn-light justify-center">
                   Hablar con un asesor
                 </a>
                 <a href="#showroom" onClick={() => setOpen(false)} className="btn border-ivory/25 text-ivory justify-center">
@@ -110,7 +110,7 @@ function Hero() {
             <a href="#colecciones" className="btn btn-light">
               Explorar colecciones <ArrowRight size={17} />
             </a>
-            <a href={advisorLink("revestimientos y decoración premium")} className="btn border-ivory/25 text-ivory">
+            <a href={whatsappLink(whatsappMessages.hero)} target="_blank" rel="noopener noreferrer" className="btn border-ivory/25 text-ivory">
               Hablar con un asesor
             </a>
           </div>
@@ -129,9 +129,9 @@ function Intro() {
       <div className="mx-auto grid max-w-[1420px] gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12">
         <Reveal className="self-center">
           <SectionLabel>LUXURY DECOR HOME</SectionLabel>
-          <h2 className="headline">Diseñamos atmósferas. Transformamos espacios.</h2>
+          <h2 className="headline">Materiales que crean atmósferas. Detalles que transforman espacios.</h2>
           <p className="mt-7 max-w-xl text-lg leading-8 text-graphite/75">
-            Curamos revestimientos, wallpapers, accesorios y piezas decorativas para que propietarios, arquitectos y diseñadores puedan crear interiores con textura, intención y carácter.
+            Seleccionamos revestimientos, wallpapers, accesorios y piezas decorativas para que propietarios, arquitectos y diseñadores puedan crear interiores con textura, intención y carácter.
           </p>
           <div className="mt-8 grid max-w-xl grid-cols-2 border-y border-ink/10 py-5 text-sm font-bold uppercase tracking-[0.14em] text-graphite/72">
             <span>Showroom físico</span>
@@ -161,7 +161,7 @@ function Collections() {
             <h2 className="headline max-w-4xl">Descubre nuestras colecciones</h2>
           </div>
           <p className="max-w-md text-lg leading-8 text-graphite/70">
-            Entra por material, ambiente o necesidad. Cada selección está pensada para verse y sentirse en persona.
+            Descubre materiales, texturas y piezas seleccionadas para transformar cada ambiente.
           </p>
         </Reveal>
         <div className="mt-12 grid auto-rows-[360px] gap-4 md:grid-cols-2 md:auto-rows-[390px] xl:grid-cols-6">
@@ -196,7 +196,7 @@ function ProductSelection() {
             <SectionLabel>SELECCIÓN LUXURY</SectionLabel>
             <h2 className="headline max-w-5xl">Detalles que cambian un espacio.</h2>
           </div>
-          <a href={advisorLink("la selección Luxury")} className="btn btn-dark w-fit">Hablar con un asesor</a>
+          <a href={whatsappLink(whatsappMessages.selection)} target="_blank" rel="noopener noreferrer" className="btn btn-dark w-fit">Hablar con un asesor</a>
         </Reveal>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {products.map((product, index) => (
@@ -247,7 +247,7 @@ function ProductModal({ product, onClose }: { product: Product | null; onClose: 
                   </div>
                 ))}
               </div>
-              <a href={advisorLink(product.name)} className="btn btn-dark mt-8 w-full sm:w-fit">
+              <a href={whatsappLink(whatsappMessages.product(product.name))} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-8 w-full sm:w-fit">
                 <MessageCircle size={17} /> Consultar por WhatsApp
               </a>
             </div>
@@ -258,35 +258,9 @@ function ProductModal({ product, onClose }: { product: Product | null; onClose: 
   );
 }
 
-function FeaturedCollection() {
-  return (
-    <section className="bg-ink py-24 text-ivory sm:py-32">
-      <div className="mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-12">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <Reveal>
-            <SectionLabel light>Materiales</SectionLabel>
-            <h2 className="headline text-ivory">Texturas que transforman.</h2>
-            <p className="mt-6 max-w-md leading-7 text-ivory/70">Madera, piedra, papel tapiz y paneles arquitectónicos seleccionados para dar volumen, ritmo y carácter a cada superficie.</p>
-            <a href="#colecciones" className="btn btn-light mt-8 w-fit">Explorar colecciones</a>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {textures.map((item, index) => (
-              <Reveal key={item.name} delay={index * 0.05} className={`group relative overflow-hidden ${index % 2 === 0 ? "aspect-[4/5]" : "mt-10 aspect-[4/5]"}`}>
-                <Image src={item.image} alt={item.name} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" />
-                <div className="absolute inset-0 bg-ink/10" />
-                <p className="absolute bottom-4 left-4 text-sm font-semibold uppercase tracking-[0.16em]">{item.name}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Spaces() {
   return (
-    <section id="ambientes" className="section bg-ivory">
+    <section id="ambientes" className="section border-t border-ink/10 bg-ivory">
       <div className="mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-12">
         <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -345,7 +319,7 @@ function MaterialExplorer() {
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-ivory/62">Material seleccionado</p>
               <p className="mt-2 font-serif text-4xl">{active.name}</p>
             </div>
-            <a href={advisorLink(`material ${active.name}`)} className="btn border-ivory/25 text-ivory">Hablar con un asesor</a>
+            <a href={whatsappLink(whatsappMessages.material(active.name))} target="_blank" rel="noopener noreferrer" className="btn border-ivory/25 text-ivory">Hablar con un asesor</a>
           </div>
         </Reveal>
       </div>
@@ -378,8 +352,8 @@ function Professionals() {
             ))}
           </div>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#contacto" className="btn btn-dark">Solicitar catálogo profesional</a>
-            <a href={advisorLink("un proyecto profesional")} className="btn border-ink/20">Hablar con un asesor</a>
+            <a href="#contacto" className="btn btn-dark">Solicitar atención profesional</a>
+            <a href={whatsappLink(whatsappMessages.professional)} target="_blank" rel="noopener noreferrer" className="btn border-ink/20">Hablar con un asesor</a>
           </div>
         </Reveal>
       </div>
@@ -425,7 +399,7 @@ function InspirationSection() {
                 <p className="mt-10 text-xs font-bold uppercase tracking-[0.22em] text-taupe">{selected.application}</p>
                 <h3 className="mt-4 font-serif text-5xl leading-none sm:text-6xl">{selected.name}</h3>
                 <p className="mt-6 text-lg leading-8 text-graphite/70">{selected.detail}</p>
-                <a href={advisorLink(selected.name)} className="btn btn-dark mt-8 w-fit" onClick={() => setSelected(null)}>Hablar con un asesor</a>
+                <a href={whatsappLink(whatsappMessages.inspiration(selected.name))} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-8 w-fit" onClick={() => setSelected(null)}>Hablar con un asesor</a>
               </div>
             </motion.div>
           </motion.div>
@@ -466,8 +440,8 @@ function Showroom() {
               </div>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="https://maps.google.com/?q=Downtown%20Business%20Center%20Dominican%20Republic" className="btn btn-light">Cómo llegar</a>
-              <a href={advisorLink("agendar una visita al showroom")} className="btn border-ivory/25 text-ivory">Agendar visita</a>
+              <a href="https://maps.google.com/?q=Downtown%20Business%20Center%20Dominican%20Republic" target="_blank" rel="noopener noreferrer" className="btn btn-light">Cómo llegar</a>
+              <a href={whatsappLink(whatsappMessages.showroom)} target="_blank" rel="noopener noreferrer" className="btn border-ivory/25 text-ivory">Agendar visita</a>
             </div>
           </Reveal>
         </div>
@@ -477,12 +451,16 @@ function Showroom() {
 }
 
 function ConsultationForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<{ name: string; interest: string; message: string } | null>(null);
   const [lookingFor, setLookingFor] = useState("Revestimientos");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const interest = String(formData.get("interest") || lookingFor).trim();
+    const message = String(formData.get("message") || "").trim();
+    setSubmitted({ name, interest, message });
   }
 
   return (
@@ -492,16 +470,16 @@ function ConsultationForm() {
           <SectionLabel>Contacto</SectionLabel>
           <h2 className="headline">Cuéntanos qué estás imaginando.</h2>
           <p className="mt-7 max-w-lg text-lg leading-8 text-graphite/70">Comparte lo que buscas y un asesor te orientará con materiales, combinaciones y próximos pasos para visitar el showroom.</p>
-          <a href={advisorLink(`asesoría sobre ${lookingFor}`)} className="btn btn-dark mt-8 w-fit"><MessageCircle size={17} /> Hablar con un asesor</a>
+          <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-8 w-fit"><MessageCircle size={17} /> Hablar con un asesor</a>
         </Reveal>
         <Reveal delay={0.08} className="border border-ink/10 bg-bone/65 p-5 sm:p-8 lg:p-10">
           {submitted ? (
             <div className="grid min-h-[520px] place-items-center text-center">
               <div>
                 <div className="mx-auto grid h-14 w-14 place-items-center border border-ink bg-ink text-ivory"><Check size={24} /></div>
-                <h3 className="mt-7 font-serif text-5xl leading-none">Solicitud recibida.</h3>
-                <p className="mx-auto mt-5 max-w-md leading-7 text-graphite/70">Gracias. También puedes continuar por WhatsApp para compartir fotos, medidas o referencias de tu espacio.</p>
-                <a href={advisorLink(`asesoría sobre ${lookingFor}`)} className="btn btn-dark mt-7"><MessageCircle size={17} /> Hablar con un asesor</a>
+                <h3 className="mt-7 font-serif text-5xl leading-none">Gracias, {submitted.name}. Ya tenemos una idea de lo que estás buscando.</h3>
+                <p className="mx-auto mt-5 max-w-md leading-7 text-graphite/70">Puedes continuar la conversación con nuestro equipo por WhatsApp.</p>
+                <a href={whatsappLink(whatsappMessages.form(submitted.name, submitted.interest, submitted.message))} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-7"><MessageCircle size={17} /> Continuar por WhatsApp</a>
               </div>
             </div>
           ) : (
@@ -553,7 +531,7 @@ function Footer() {
           </div>
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-ivory/45">Social</p>
-            <a href="https://instagram.com/luxurydecor.do" className="inline-flex items-center gap-2 text-ivory/72"><Instagram size={17} /> @luxurydecor.do</a>
+            <a href="https://instagram.com/luxurydecor.do" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-ivory/72"><Instagram size={17} /> @luxurydecor.do</a>
           </div>
           <div className="text-ivory/72">
             <p>Downtown Business Center</p>
@@ -564,7 +542,7 @@ function Footer() {
         </div>
         <div className="flex flex-col justify-between gap-4 pt-8 text-sm text-ivory/45 sm:flex-row">
           <p>© 2026 Luxury Decor Home</p>
-          <a href={advisorLink("información de Luxury Decor Home")} className="animated-link w-fit">Hablar con un asesor</a>
+          <a href={whatsappLink(whatsappMessages.footer)} target="_blank" rel="noopener noreferrer" className="animated-link w-fit">Hablar con un asesor</a>
         </div>
       </div>
     </footer>
@@ -573,7 +551,7 @@ function Footer() {
 
 function WhatsAppButton() {
   return (
-    <a href={advisorLink("asesoría desde la página web")} aria-label="Hablar con un asesor por WhatsApp" className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 border border-ink/12 bg-ivory/90 px-4 py-3 text-xs font-bold uppercase tracking-[0.13em] text-ink shadow-soft backdrop-blur-md transition hover:bg-ink hover:text-ivory sm:text-sm">
+    <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" aria-label="Hablar con un asesor por WhatsApp" className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 border border-ink/12 bg-ivory/90 px-4 py-3 text-xs font-bold uppercase tracking-[0.13em] text-ink shadow-soft backdrop-blur-md transition hover:bg-ink hover:text-ivory sm:text-sm">
       <MessageCircle size={18} />
       <span>Hablar con un asesor</span>
     </a>
@@ -588,7 +566,6 @@ export default function Home() {
       <Intro />
       <Collections />
       <ProductSelection />
-      <FeaturedCollection />
       <Spaces />
       <MaterialExplorer />
       <Professionals />

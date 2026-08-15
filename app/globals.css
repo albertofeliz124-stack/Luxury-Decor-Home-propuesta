@@ -13,10 +13,16 @@
 
 html {
   background: #f7f3ec;
+  overflow-x: hidden;
 }
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  overflow-x: clip;
 }
 
 ::selection {
