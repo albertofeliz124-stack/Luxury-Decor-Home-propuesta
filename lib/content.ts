@@ -14,8 +14,8 @@ export const whatsappMessages = {
   showroom: "Hola, quisiera coordinar una visita al showroom.",
   inspiration: (name: string) => `Hola, quisiera recibir asesoría para un ambiente inspirado en ${name}.`,
   footer: "Hola, quisiera recibir información sobre Luxury Decor Home.",
-  form: (name: string, interest: string, message?: string) =>
-    `Hola, soy ${name}. Quisiera recibir asesoría sobre ${interest}.${message ? ` ${message}` : ""}`
+  form: (name: string, interest: string, message?: string, hasPhoto?: boolean) =>
+    `Hola, soy ${name}. Quisiera recibir asesoría sobre ${interest}.${message ? ` ${message}` : ""}${hasPhoto ? " También tengo una foto de mi espacio para compartir." : ""}`
 };
 
 export const navItems = [

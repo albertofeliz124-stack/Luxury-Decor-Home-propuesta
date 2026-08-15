@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, CalendarDays, Check, Instagram, MapPin, Menu, MessageCircle, Send, X } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, ImagePlus, Instagram, MapPin, Menu, MessageCircle, Send, X } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { categories, images, inspiration, navItems, products, spaces, textures, whatsappLink, whatsappMessages } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
@@ -451,8 +451,9 @@ function Showroom() {
 }
 
 function ConsultationForm() {
-  const [submitted, setSubmitted] = useState<{ name: string; interest: string; message: string } | null>(null);
+  const [submitted, setSubmitted] = useState<{ name: string; interest: string; message: string; hasPhoto: boolean } | null>(null);
   const [lookingFor, setLookingFor] = useState("Revestimientos");
+  const [photoName, setPhotoName] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -460,7 +461,9 @@ function ConsultationForm() {
     const name = String(formData.get("name") || "").trim();
     const interest = String(formData.get("interest") || lookingFor).trim();
     const message = String(formData.get("message") || "").trim();
-    setSubmitted({ name, interest, message });
+    const photo = formData.get("photo");
+    const hasPhoto = photo instanceof File && photo.name.length > 0;
+    setSubmitted({ name, interest, message, hasPhoto });
   }
 
   return (
@@ -479,7 +482,7 @@ function ConsultationForm() {
                 <div className="mx-auto grid h-14 w-14 place-items-center border border-ink bg-ink text-ivory"><Check size={24} /></div>
                 <h3 className="mt-7 font-serif text-5xl leading-none">Gracias, {submitted.name}. Ya tenemos una idea de lo que estás buscando.</h3>
                 <p className="mx-auto mt-5 max-w-md leading-7 text-graphite/70">Puedes continuar la conversación con nuestro equipo por WhatsApp.</p>
-                <a href={whatsappLink(whatsappMessages.form(submitted.name, submitted.interest, submitted.message))} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-7"><MessageCircle size={17} /> Continuar por WhatsApp</a>
+                <a href={whatsappLink(whatsappMessages.form(submitted.name, submitted.interest, submitted.message, submitted.hasPhoto))} target="_blank" rel="noopener noreferrer" className="btn btn-dark mt-7"><MessageCircle size={17} /> Continuar por WhatsApp</a>
               </div>
             </div>
           ) : (
@@ -503,6 +506,25 @@ function ConsultationForm() {
               <label className="grid gap-2 text-sm font-bold uppercase tracking-[0.14em] text-graphite/70">
                 Cuéntanos un poco sobre tu espacio
                 <textarea name="message" rows={5} className="form-field resize-none" />
+              </label>
+              <label className="group grid cursor-pointer gap-3 border border-ink/[0.12] bg-ivory p-4 text-sm font-bold uppercase tracking-[0.14em] text-graphite/70 transition hover:border-ink/40">
+                <span>Adjuntar foto de mi espacio</span>
+                <span className="flex min-h-20 items-center gap-4 border border-dashed border-ink/20 px-4 py-4 normal-case tracking-normal text-graphite/65 transition group-hover:border-ink/40">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center border border-ink/15 text-ink">
+                    <ImagePlus size={19} />
+                  </span>
+                  <span>
+                    <span className="block font-semibold text-ink">{photoName || "Seleccionar JPG, PNG o HEIC"}</span>
+                    <span className="mt-1 block text-sm font-medium text-graphite/58">Opcional · Una foto nos ayuda a entender mejor lo que tienes en mente.</span>
+                  </span>
+                </span>
+                <input
+                  name="photo"
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.heic,image/jpeg,image/png,image/heic"
+                  className="sr-only"
+                  onChange={(event) => setPhotoName(event.target.files?.[0]?.name || "")}
+                />
               </label>
               <button type="submit" className="btn btn-dark mt-2 w-full sm:w-fit">
                 <Send size={17} /> Solicitar asesoría
