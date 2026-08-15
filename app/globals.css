@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-editorial: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -49,7 +54,7 @@ img {
   }
 
   .form-field {
-    @apply min-h-14 w-full border border-ink/12 bg-ivory px-4 py-3 text-base font-medium normal-case tracking-normal text-ink outline-none transition placeholder:text-graphite/35 focus:border-ink;
+    @apply min-h-14 w-full border border-ink/[0.12] bg-ivory px-4 py-3 text-base font-medium normal-case tracking-normal text-ink outline-none transition placeholder:text-graphite/35 focus:border-ink;
   }
 
   .animated-link {
