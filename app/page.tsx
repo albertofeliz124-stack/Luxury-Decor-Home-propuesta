@@ -100,20 +100,18 @@ function Hero() {
       <Image src={images.hero} alt="Interior contemporáneo con revestimientos y decoración premium" fill priority className="object-cover object-[56%_center] opacity-[0.86] md:object-center" sizes="100vw" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_42%,rgba(247,243,236,0.14),transparent_28%),linear-gradient(90deg,rgba(21,20,18,0.88),rgba(21,20,18,0.48)_48%,rgba(21,20,18,0.16))]" />
       <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1540px] flex-col justify-end px-5 pb-10 pt-28 sm:px-8 lg:px-12 lg:pb-16">
-        <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.68rem] font-bold uppercase tracking-[0.26em] text-ivory/78">
-          <span>Revestimientos Premium</span>
-          <span>Wallpapers</span>
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1540px] flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-18 lg:px-12 lg:pb-20">
+        <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="mb-8 flex items-center text-[0.68rem] font-bold uppercase tracking-[0.26em] text-ivory/78 sm:mb-10">
           <span className="inline-flex items-center gap-2"><MapPin size={14} /> República Dominicana</span>
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }} className="max-w-5xl font-serif text-[clamp(4rem,13vw,12.5rem)] font-medium leading-[0.82] tracking-normal">
+        <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }} className="max-w-5xl font-serif text-[clamp(3.65rem,17vw,12.5rem)] font-medium leading-[0.88] tracking-normal sm:leading-[0.84]">
           Espacios que hablan de ti.
         </motion.h1>
-        <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.18 }} className="mt-8 grid gap-7 lg:grid-cols-[minmax(0,580px)_auto] lg:items-end lg:justify-between">
+        <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.18 }} className="mt-10 grid gap-8 sm:mt-12 lg:grid-cols-[minmax(0,580px)_auto] lg:items-end lg:justify-between">
           <p className="max-w-xl text-lg leading-8 text-ivory/84 sm:text-xl">
             Revestimientos, texturas y piezas cuidadosamente seleccionadas para transformar cada espacio.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-4 sm:flex-row">
             <a href="#colecciones" className="btn btn-light">
               Explorar colecciones <ArrowRight size={17} />
             </a>
